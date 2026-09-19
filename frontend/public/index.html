@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@4/build/jwt-decode.min.js"></script>
+    <title>Real Estate Management</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <button id="back-btn" class="hidden">← Go Back</button>
+
+      <header>
+        <div class="header-content">
+          <h1>Real Estate Management System</h1>
+          <button id="inbox-btn" class="mail-icon hidden">
+            ✉️
+            <span id="inbox-badge" class="badge hidden"></span>
+          </button>
+        </div>
+      </header>
+      <section id="auth-section">
+        <h2>Login</h2>
+        <form id="login-form">
+          <label
+            >Email:
+            <input type="email" id="login-email" required />
+          </label>
+          <label
+            >Password:
+            <input type="password" id="login-password" required />
+          </label>
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="show-password-login" />
+            <label for="show-password-login">Show Password</label>
+          </div>
+          <button type="submit">Login</button>
+        </form>
+        <p>Or <a href="#" id="show-register">Register</a></p>
+      </section>
+
+      <section id="register-section" class="hidden">
+        <h2>Register</h2>
+        <form id="register-form">
+          <label>Email: <input type="email" id="reg-email" required /> </label
+          ><br />
+          <label
+            >Password:
+            <input type="password" id="reg-password" required /> </label
+          ><br />
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="show-password-reg" />
+            <label for="show-password-reg">Show Password</label>
+          </div>
+          <br />
+          <label
+            >Role:
+            <select id="reg-role">
+              <option value="tenant">Tenant</option>
+              <option value="staff">Staff</option>
+              <option value="admin">Admin</option>
+            </select> </label
+          ><br />
+          <!-- Admin Code field, shown only when role=admin -->
+          <div id="secret-code-field" style="display: none">
+            <label
+              >Admin Secret Code:
+              <input type="password" id="reg-admin-code" /> </label
+            ><br />
+          </div>
+          <button type="submit">Register</button>
+        </form>
+        <p>Or <a href="#" id="show-login">Login</a></p>
+      </section>
+
+      <section id="main-app" class="hidden">
+        <nav>
+          <button data-view="properties">Properties</button>
+          <button data-view="leases">Leases</button>
+          <button data-view="maintenance">Maintenance</button>
+          <button data-view="payments">Payments</button>
+          <button data-view="tenants">My Profile</button>
+          <button id="logout">Logout</button>
+        </nav>
+        <div id="view-container"></div>
+      </section>
+    </div>
+
+    <script>
+      console.log("Starting to load scripts...");
+      window.addEventListener("error", function (e) {
+        console.error("Script loading error:", e.filename, e.message);
+      });
+    </script>
+
+    <script
+      src="../scripts/config.js"
+      onerror="console.error('Failed to load config.js')"
+    ></script>
+    <script
+      src="../scripts/navigation.js"
+      onerror="console.error('Failed to load navigation.js')"
+    ></script>
+    <script
+      src="../scripts/auth.js"
+      onerror="console.error('Failed to load auth.js')"
+    ></script>
+    <script
+      src="../scripts/lease.js"
+      onerror="console.error('Failed to load lease.js')"
+    ></script>
+    <script
+      src="../scripts/property.js"
+      onerror="console.error('Failed to load property.js')"
+    ></script>
+    <script
+      src="../scripts/maintenance.js"
+      onerror="console.error('Failed to load maintenance.js')"
+    ></script>
+    <script
+      src="../scripts/payment.js"
+      onerror="console.error('Failed to load payment.js')"
+    ></script>
+    <script
+      src="../scripts/tenant.js"
+      onerror="console.error('Failed to load tenant.js')"
+    ></script>
+    <script
+      src="../scripts/notifications.js"
+      onerror="console.error('Failed to load notifications.js')"
+    ></script>
+  </body>
+</html>
